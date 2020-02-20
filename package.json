@@ -1,5 +1,5 @@
 {
-  "name": "BookStoreLibrary",
+  "name": "bookstorelibrary",
   "version": "1.0.0",
   "description": "> Building a book store library using vanilla Javascript.",
   "main": "index.js",
@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/addod19/BookStoreLibrary.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
