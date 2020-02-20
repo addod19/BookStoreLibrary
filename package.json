@@ -1,0 +1,25 @@
+{
+  "name": "BookStoreLibrary",
+  "version": "1.0.0",
+  "description": "> Building a book store library using vanilla Javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addod19/BookStoreLibrary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/addod19/BookStoreLibrary/issues"
+  },
+  "homepage": "https://github.com/addod19/BookStoreLibrary#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
+  }
+}
