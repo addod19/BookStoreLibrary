@@ -1,5 +1,3 @@
-alert("Hello");
-
 let myLibrary = [];
 
 function Book(title, author, pages, read) {

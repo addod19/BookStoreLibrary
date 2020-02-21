@@ -8,6 +8,55 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello friends</h1>
+    <div class="wrapper">
+      <h1>Our Library </h1>
+      <div class="book-list">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Pages</th>
+              <th>Read Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Movies</td>
+              <td>Nick</td>
+              <td>20</td>
+              <td>Unread</td>
+              <td><a href="">x</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="button">
+        <input type="submit" id="submit" value="+">
+      </div>
+      <div class="hidden-form">
+        <form id="form" class="form">
+          <div>
+            <label>Title</label>
+            <input type="text" name="title" id="title">
+          </div>
+          <div>
+            <label>Author</label>
+            <input type="text" name="author" id="author">
+          </div>
+          <div>
+            <label>Pages</label>
+            <input type="text" name="pages" id="pages">
+          </div>
+          <div>
+            <label>Read Status</label>
+            <input type="text" name="read-status" id="read-status">
+          </div>
+          <input type="submit" id="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+    
   </body>
 </html>
