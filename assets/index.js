@@ -13,7 +13,6 @@ let bookList = {
       author = document.getElementById('author'),
       pages = document.getElementById('pages'),
       read = document.getElementById('read-status');
-    console.log(read.value)
     this.books.push(new Book(title.value, author.value, pages.value, read.value));
     view.clearInputs();
     view.displayBooks();
@@ -54,17 +53,21 @@ let view = {
       let html = "";
       for (let key in list[i]) {
         if (key == 'read') {
-          html += `<td id=${i}><button onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`
+          let btnClass = list[i][key] === 'Unread' ? "btn btn-info" : "btn btn-success";
+          html += `<td id=${i}><button class="${btnClass} btn-block" onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`
         } else {
-          html += `<td>${list[i][key]}</td>`
+          html += `<td class="book-text">${list[i][key]}</td>`
+          
         }
       }
-      html += `<td><button id=${i} onclick="bookList.deleteBook(${i})">Delete</button></td>`;
+      html += `<td><button id=${i} onclick="bookList.deleteBook(${i})" class="btn btn-danger btn-block">Delete</button></td>`;
       row.innerHTML = html;
       table.appendChild(row);
       this.hideForm();
     }
+    this.addEmptyRow();
   },
+ 
   showForm: () => {
     f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'block';
@@ -76,6 +79,15 @@ let view = {
   clearInputs: () => {
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => input.value = '');
+  },
+  addEmptyRow: () => {
+    table = document.querySelector(".list");
+    rowEmpty = document.createElement('row');
+    rowEmpty.innerHTML = `
+      <td colspan="5"> </td>
+      <td><button onclick="view.showForm()"class="btn btn-success">Add Book</button></td>
+    `;
+    table.appendChild(rowEmpty);
   }
 }
 
@@ -86,34 +98,3 @@ document.querySelector("#add-book").addEventListener("click", function (event) {
 
 view.displayBooks();
 
-
-// setting attributes
-// createBook.setAttribute('id', 'toggle');
-// table.setAttribute('class', 'tableWrap');
-
-// addButton.innerHTML = 'Add Book +';
-
-// document.body.appendChild(addButton);
-// // document.mainContainer.insertBefore(addButton, hidddenForm);
-// // Styling elements
-// addButton.classList.add('btnStyle');
-// mainContainer.classList.add('main');
-// table.classList.add('tableStyle');
-// tbody.classList.add('tableContent')
-
-// // setting id attribute to button
-// addButton.setAttribute('id', 'myToggle');
-// const btnStyle = document.querySelector('.btnStyle');
-
-
-// toggle book form
-// document.querySelector('#myToggle').addEventListener('click', (e) => {
-//   alert('You ckicked me');
-
-//   // const toggleForm = document.querySelector('#toggle');
-//   // if (toggleForm.style.display === 'none') {
-//   //   toggleForm.style.display = 'block';
-//   // } else {
-//   //   toggleForm.style.display = 'none';
-//   // }
-// });
