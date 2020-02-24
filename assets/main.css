@@ -39,7 +39,7 @@ body {
   width: 60%;
 }
 
-.formHidden {
+.hidden-form {
   display: hidden;
   height: 60%;
   width: 20em;

@@ -6,8 +6,8 @@ function Book(title, author, pages, read = 'Unread') {
 }
 
 let bookList = {
-  books: [new Book('Twist Of The Wrist', 'Keith Code', 135, true),
-  new Book('A Perfect Day', 'Lady Teresa', 40, false)],
+  books: [],//[new Book('Twist Of The Wrist', 'Keith Code', 135, true),
+  //new Book('A Perfect Day', 'Lady Teresa', 40, false)],
   addBook: function () {
     let title = document.getElementById('title'),
       author = document.getElementById('author'),
@@ -15,10 +15,10 @@ let bookList = {
       read = document.getElementById('read-status');
 
     this.books.push(new Book(title.value, author.value, pages.value, read.value ? 'Read' : 'Unread'));
-    title.value = "";
-    author.value = "";
-    pages.value = "";
-    read.value = "";
+    // title.value = "";
+    // author.value = "";
+    // pages.value = "";
+    // read.value = "";
     view.displayBooks();
   },
   changeBook: function (position, title, author, pages, read) {
@@ -77,47 +77,12 @@ let view = {
   }
 }
 
-// document.querySelector("#add-book").addEventListener("click", function (event) {
-//   event.preventDefault();
-//   bookList.addBook();
-// }, false);
+document.querySelector("#add-book").addEventListener("click", function (event) {
+  event.preventDefault();
+  bookList.addBook();
+}, false);
 
 view.displayBooks();
 
-const inputs = document.querySelectorAll('input');
-function clear() {
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[i].value = '';
-  }
-}
-
-// setting attributes
-// createBook.setAttribute('id', 'toggle');
-// table.setAttribute('class', 'tableWrap');
-
-// addButton.innerHTML = 'Add Book +';
-
-// document.body.appendChild(addButton);
-// // document.mainContainer.insertBefore(addButton, hidddenForm);
-// // Styling elements
-// addButton.classList.add('btnStyle');
-// mainContainer.classList.add('main');
-// table.classList.add('tableStyle');
-// tbody.classList.add('tableContent')
-
-// // setting id attribute to button
-// addButton.setAttribute('id', 'myToggle');
-// const btnStyle = document.querySelector('.btnStyle');
-
-
-// toggle book form
-// document.querySelector('#myToggle').addEventListener('click', (e) => {
-//   alert('You ckicked me');
-
-//   // const toggleForm = document.querySelector('#toggle');
-//   // if (toggleForm.style.display === 'none') {
-//   //   toggleForm.style.display = 'block';
-//   // } else {
-//   //   toggleForm.style.display = 'none';
-//   // }
-// });
+// let addButton = document.getElementById('submit');
+// addButton.addEventListener("click", () => bookList.displayBooks());
