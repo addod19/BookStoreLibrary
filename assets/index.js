@@ -77,10 +77,10 @@ let view = {
   }
 }
 
-// document.querySelector("#add-book").addEventListener("click", function (event) {
-//   event.preventDefault();
-//   bookList.addBook();
-// }, false);
+document.querySelector("#add-book").addEventListener("click", function (event) {
+  event.preventDefault();
+  bookList.addBook();
+}, false);
 
 view.displayBooks();
 
