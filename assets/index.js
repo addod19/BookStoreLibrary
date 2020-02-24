@@ -57,7 +57,6 @@ let view = {
           html += `<td id=${i}><button class="${btnClass} btn-block" onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`
         } else {
           html += `<td class="book-text">${list[i][key]}</td>`
-          
         }
       }
       html += `<td><button id=${i} onclick="bookList.deleteBook(${i})" class="btn btn-danger btn-block">Delete</button></td>`;
@@ -67,7 +66,6 @@ let view = {
     }
     this.addEmptyRow();
   },
- 
   showForm: () => {
     f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'block';
@@ -76,25 +74,49 @@ let view = {
     f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'none';
   },
+  renderForm: () => {
+    row = document.querySelector('.last-row');
+    console.log(row);
+    html = `<form id="form" class="form">
+    <td>
+    <div class="form-row">
+                  <div class="form-group"><input type="text" maxlength="35" name="title" id="title"></div>
+                </td>
+                <td>
+                  <div class="form-group"><input type="text" maxlength="35" name="author" id="author"></div>
+                </td>
+              <td>
+                <div class="form-group"><input type="text" maxlength="5" name="pages" id="pages"></div>
+              </td>
+                <td>
+                <div class="form-group">
+                <select id="read-status" name="read-status" class="form-control form-control-md">
+                  <option value="Read">Read</option>
+                  <option value="Unread">Unread</option>
+                </select>
+                </div>
+                </td>
+                </div>
+                <td><button id="add-book" onclick="bookList.addBook()" class="btn btn-success btn-block">Add book</button></td>
+  </form>`;
+    row.innerHTML = html;
+  },
   clearInputs: () => {
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => input.value = '');
   },
   addEmptyRow: () => {
     table = document.querySelector(".list");
-    rowEmpty = document.createElement('row');
-    rowEmpty.innerHTML = `
-      <td colspan="5"> </td>
-      <td><button onclick="view.showForm()"class="btn btn-success">Add Book</button></td>
-    `;
+    rowEmpty = document.createElement('tr');
+    rowEmpty.className = 'last-row';
+    rowEmpty.innerHTML = `<td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><button onclick="view.renderForm()" class="btn btn-success btn-block">Add Book</button></td>`;
     table.appendChild(rowEmpty);
   }
 }
-
-document.querySelector("#add-book").addEventListener("click", function (event) {
-  event.preventDefault();
-  bookList.addBook();
-}, false);
 
 view.displayBooks();
 
