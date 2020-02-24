@@ -27,11 +27,11 @@
         <table id="table">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Pages</th>
-              <th>Read Status</th>
-              <th></th>
+              <th class="col-xs-8">Title</th>
+              <th class="col-xs-1">Author</th>
+              <th class="col-xs-1">Pages</th>
+              <th class="col-xs-1">Read Status</th>
+              <th class="col-xs-1"></th>
             </tr>
           </thead>
           <tbody class="list">
@@ -48,25 +48,7 @@
       <!-- <button onclick="view.showForm()">+</button> -->
       <div class="hidden-form">
         <form id="form" class="form">
-          <div class='form-group'>
-            <label>Title</label>
-            <input type="text" name="title" id="title">
-          </div>
-          <div class='form-group'>
-            <label>Author</label>
-            <input type="text" name="author" id="author">
-          </div>
-          <div class='form-group'>
-            <label>Pages</label>
-            <input type="text" name="pages" id="pages">
-          </div>
-          <div class='form-group'>
-            <label>Read Status</label>
-            <select id="read-status" name="read-status">
-              <option value="Read">Read</option>
-              <option value="Unread">Unread</option>
-            </select>
-          </div>
+
           <button id="add-book">Add book</button>
         </form>
       </div>
