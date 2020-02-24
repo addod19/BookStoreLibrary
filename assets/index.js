@@ -6,19 +6,16 @@ function Book(title, author, pages, read = 'Unread') {
 }
 
 let bookList = {
-  books: [new Book('Twist Of The Wrist', 'Keith Code', 135, true),
-  new Book('A Perfect Day', 'Lady Teresa', 40, false)],
+  books: [new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'),
+  new Book('A Perfect Day', 'Lady Teresa', 40, 'Unread')],
   addBook: function () {
     let title = document.getElementById('title'),
       author = document.getElementById('author'),
       pages = document.getElementById('pages'),
       read = document.getElementById('read-status');
-
-    this.books.push(new Book(title.value, author.value, pages.value, read.value ? 'Read' : 'Unread'));
-    title.value = "";
-    author.value = "";
-    pages.value = "";
-    read.value = "";
+    console.log(read.value)
+    this.books.push(new Book(title.value, author.value, pages.value, read.value));
+    view.clearInputs();
     view.displayBooks();
   },
   changeBook: function (position, title, author, pages, read) {
@@ -34,7 +31,7 @@ let bookList = {
   },
   toggleRead: function (position) {
     let book = this.books[position]
-    book.read = !book.read;
+    book.read = book.read == "Read" ? "Unread" : "Read";
     view.displayBooks();
   },
   toggleAll: function () {
@@ -56,12 +53,13 @@ let view = {
       let row = document.createElement('tr');
       let html = "";
       for (let key in list[i]) {
-        let id = "";
         if (key == 'read') {
-          id = `data-id=${i}`
+          html += `<td id=${i}><button onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`
+        } else {
+          html += `<td>${list[i][key]}</td>`
         }
-        html += `<td ${id}>${list[i][key]}</td>`;
       }
+      html += `<td><button id=${i} onclick="bookList.deleteBook(${i})">Delete</button></td>`;
       row.innerHTML = html;
       table.appendChild(row);
       this.hideForm();
@@ -74,6 +72,10 @@ let view = {
   hideForm: () => {
     f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'none';
+  },
+  clearInputs: () => {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
   }
 }
 
@@ -84,12 +86,6 @@ document.querySelector("#add-book").addEventListener("click", function (event) {
 
 view.displayBooks();
 
-const inputs = document.querySelectorAll('input');
-function clear() {
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[i].value = '';
-  }
-}
 
 // setting attributes
 // createBook.setAttribute('id', 'toggle');

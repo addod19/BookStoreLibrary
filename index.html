@@ -27,6 +27,7 @@
             <th>Author</th>
             <th>Pages</th>
             <th>Read Status</th>
+            <th></th>
           </tr>
         </thead>
         <tbody class="list">
@@ -40,9 +41,7 @@
         </tbody>
       </table>
     </div>
-    <div class="button">
-      <input type="submit" id="submit" value="+" onclick="view.showForm()" />
-    </div>
+    <button onclick="view.showForm()">+</button>
     <div class="hidden-form">
       <form id="form" class="form">
         <div class='inputContainer'>
@@ -59,7 +58,10 @@
         </div>
         <div>
           <label>Read Status</label>
-          <input type="text" name="read-status" id="read-status">
+          <select id="read-status" name="read-status">
+            <option value="Read">Read</option>
+            <option value="Unread">Unread</option>
+          </select>
         </div>
         <button id="add-book">Add book</button>
       </form>
