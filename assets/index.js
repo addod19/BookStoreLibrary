@@ -57,7 +57,6 @@ let view = {
           html += `<td id=${i}><button class="${btnClass} btn-block" onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`
         } else {
           html += `<td class="book-text">${list[i][key]}</td>`
-          
         }
       }
       html += `<td><button id=${i} onclick="bookList.deleteBook(${i})" class="btn btn-danger btn-block">Delete</button></td>`;
@@ -67,7 +66,6 @@ let view = {
     }
     this.addEmptyRow();
   },
- 
   showForm: () => {
     f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'block';
@@ -82,11 +80,12 @@ let view = {
   },
   addEmptyRow: () => {
     table = document.querySelector(".list");
-    rowEmpty = document.createElement('row');
-    rowEmpty.innerHTML = `
-      <td colspan="5"> </td>
-      <td><button onclick="view.showForm()"class="btn btn-success">Add Book</button></td>
-    `;
+    rowEmpty = document.createElement('tr');
+    rowEmpty.innerHTML = `<td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><button onclick="view.showForm()"class="btn btn-success btn-block">Add Book</button></td>`;
     table.appendChild(rowEmpty);
   }
 }
