@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/main.css" />
-    <script src="assets/index.js"></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <h1>Our Library </h1>
-      <div class="book-list">
-        <table id="table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Pages</th>
-              <th>Read Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Movies</td>
-              <td>Nick</td>
-              <td>20</td>
-              <td>Unread</td>
-              <td><a href="">x</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="button">
-        <input type="submit" id="submit" value="+">
-      </div>
-      <div class="hidden-form">
-        <form id="form" class="form">
-          <div>
-            <label>Title</label>
-            <input type="text" name="title" id="title">
-          </div>
-          <div>
-            <label>Author</label>
-            <input type="text" name="author" id="author">
-          </div>
-          <div>
-            <label>Pages</label>
-            <input type="text" name="pages" id="pages">
-          </div>
-          <div>
-            <label>Read Status</label>
-            <input type="text" name="read-status" id="read-status">
-          </div>
-          <input type="submit" id="submit" value="Submit">
-        </form>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/main.css" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1 id="one">Our Library</h1>
+    <div class="book-list">
+      <table id="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="list">
+          <tr>
+            <td>Movies</td>
+            <td>Nick</td>
+            <td>20</td>
+            <td>Unread</td>
+            <td><a href="">x</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="button">
+      <input type="submit" id="submit" value="+" onclick="showForm()" />
+      <button onclick="bookList.toggleAll()">Toggle</button>
+      <div>
+        <input type="text" id="title"></input>
+        <button onclick="bookList.addBook()">Add Book</button>
       </div>
     </div>
-    
-  </body>
+    <div class="hidden-form">
+      <!-- <form id="form" class="form">
+        <div>
+          <label>Title</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div>
+          <label>Author</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div>
+          <label>Pages</label>
+          <input type="text" name="pages" id="pages" />
+        </div>
+        <div>
+          <label>Read Status</label>
+          <input type="text" name="read-status" id="read-status" />
+        </div>
+        <button onclick="bookList.addBook()">Add book</button>
+      </form> -->
+    </div>
+  </div>
+  <script src="assets/index.js"></script>
+  <script src="assets/test.js"></script>
+</body>
+
 </html>
