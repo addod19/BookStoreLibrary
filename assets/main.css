@@ -4,21 +4,7 @@ body {
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-/* .btnStyle {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  width: "30%";
-  height: "3em";
-  background: "#2e2c72";
-  color: 'aliceblue';
-  transition: 'all ease-in-out 0.2s';
-  cursor: 'pointer';
-  border: 'none';
-  border-radius: '2em';
-  margin-left: '40%';
-  margin-top: '10%';
-} */
+
 .book-text {
   font-weight: bolder;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -56,7 +42,7 @@ body {
 .main {
   display: flex;
   flex-direction: column;
-  width: 98%;
+  width: 100%;
   height: auto;
   margin: 1%;
   padding: 10px;

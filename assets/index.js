@@ -13,9 +13,15 @@ let bookList = {
       author = document.getElementById('author'),
       pages = document.getElementById('pages'),
       read = document.getElementById('read-status');
-    this.books.push(new Book(title.value, author.value, pages.value, read.value));
-    view.clearInputs();
-    view.displayBooks();
+      if (title.value === "" || author.value === "" || pages.value === "" || read.value === "") {
+        view.showAlert('Please enter all fields', 'danger');
+      } else {
+        this.books.push(new Book(title.value, author.value, pages.value, read.value));
+        view.clearInputs();
+        view.displayBooks();
+        view.showAlert('Book added successfully!!', 'success');
+      }
+    
   },
   changeBook: function (position, title, author, pages, read) {
     title ? this.books[position].title = title : null;
@@ -59,7 +65,7 @@ let view = {
           html += `<td class="book-text">${list[i][key]}</td>`
         }
       }
-      html += `<td><button id=${i} onclick="bookList.deleteBook(${i})" class="btn btn-danger btn-block">Delete</button></td>`;
+      html += `<td><button id=${i} onclick="bookList.deleteBook(${i})" class="btn btn-danger  btn-block">Delete</button></td>`;
       row.innerHTML = html;
       table.appendChild(row);
       this.hideForm();
@@ -76,7 +82,6 @@ let view = {
   },
   renderForm: () => {
     row = document.querySelector('.last-row');
-    console.log(row);
     html = `<form id="form" class="form">
     <td>
     <div class="form-row">
@@ -97,7 +102,7 @@ let view = {
                 </div>
                 </td>
                 </div>
-                <td><button id="add-book" onclick="bookList.addBook()" class="btn btn-success btn-block">Add book</button></td>
+                <td><button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button></td>
   </form>`;
     row.innerHTML = html;
   },
@@ -115,6 +120,18 @@ let view = {
     <td></td>
     <td><button onclick="view.renderForm()" class="btn btn-success btn-block">Add Book</button></td>`;
     table.appendChild(rowEmpty);
+  },
+  showAlert: (message, className) => {
+    const div = document.createElement('div');
+    console.log(div);
+    div.className = ` alert alert-${className}`;
+    div.appendChild(document.createTextNode(message));
+    const main = document.querySelector('.main');
+    const table = document.querySelector('#table');
+    main.insertBefore(div, table);
+
+    // vanish in 2 seconds
+    setTimeout(() => document.querySelector('.alert').remove(), 2000);
   }
 }
 
