@@ -35,15 +35,15 @@
       </table>
     </div>
     <div class="button">
-      <input type="submit" id="submit" value="+" onclick="showForm()" />
+      <input type="submit" id="submit" value="+" onclick="view.showForm()" />
       <button onclick="bookList.toggleAll()">Toggle</button>
-      <div>
+      <!-- <div>
         <input type="text" id="title"></input>
         <button onclick="bookList.addBook()">Add Book</button>
-      </div>
+      </div> -->
     </div>
     <div class="hidden-form">
-      <!-- <form id="form" class="form">
+      <form id="form" class="form">
         <div>
           <label>Title</label>
           <input type="text" name="title" id="title" />
@@ -60,8 +60,8 @@
           <label>Read Status</label>
           <input type="text" name="read-status" id="read-status" />
         </div>
-        <button onclick="bookList.addBook()">Add book</button>
-      </form> -->
+        <button id="add-book">Add book</button>
+      </form>
     </div>
   </div>
   <script src="assets/index.js"></script>
