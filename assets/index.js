@@ -22,16 +22,10 @@ const bookList = {
       view.showAlert('Book added successfully!!', 'success');
     }
   },
-  // changeBook(position, title, author, pages, read) {
-  //   title ? this.books[position].title = title : null;
-  //   author ? this.books[position].author = author : null;
-  //   pages ? this.books[position].pages = pages : null;
-  //   this.books[position].read = read;
-  //   view.displayBooks();
-  // },
   deleteBook(position) {
     this.books.splice(position, 1);
     view.displayBooks();
+    view.showAlert('Book delete successfully', 'success');
   },
   toggleRead(position) {
     const book = this.books[position];
@@ -96,7 +90,6 @@ let view = {
   },
   showAlert: (message, className) => {
     const div = document.createElement('div');
-    console.log(div);
     div.className = ` alert alert-${className}`;
     div.appendChild(document.createTextNode(message));
     const main = document.querySelector('.main');
