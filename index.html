@@ -45,11 +45,39 @@
           </tbody>
         </table>
       </div>
-      
+
       <div class="hidden-form">
-        
+        <form id="form" class="form">
+          <td>
+            <div class="form-row">
+              <label for="title"><b>Title</b>
+                <div class="form-group"><input class="form-control" type="text" maxlength="35" name="title" id="title">
+                </div>
+          </td>
+          <td>
+            <label for="author"><b>Author</b>
+              <div class="form-group"><input class="form-control" type="text" maxlength="35" name="author" id="author">
+              </div>
+          </td>
+          <td>
+            <label for="pages"><b>Number of Pages</b>
+              <div class="form-group"><input class="form-control" type="text" maxlength="5" name="pages" id="pages">
+              </div>
+          </td>
+          <td>
+            <label for="author"><b>Read Status</b>
+              <div class="form-group">
+                <select id="read-status" name="read-status" class="form-control form-control-md">
+                  <option value="Read">Read</option>
+                  <option value="Unread">Unread</option>
+                </select>
+              </div>
+          </td>
       </div>
+      <td><button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button></td>
+      </form>
     </div>
+  </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

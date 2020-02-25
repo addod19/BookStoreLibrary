@@ -79,32 +79,6 @@ let view = {
     const f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'none';
   },
-  renderForm: () => {
-    const row = document.querySelector('.last-row');
-    const html = `<form id="form" class="form">
-    <td>
-    <div class="form-row">
-                  <div class="form-group"><input type="text" maxlength="35" name="title" id="title"></div>
-                </td>
-                <td>
-                  <div class="form-group"><input type="text" maxlength="35" name="author" id="author"></div>
-                </td>
-              <td>
-                <div class="form-group"><input type="text" maxlength="5" name="pages" id="pages"></div>
-              </td>
-                <td>
-                <div class="form-group">
-                <select id="read-status" name="read-status" class="form-control form-control-md">
-                  <option value="Read">Read</option>
-                  <option value="Unread">Unread</option>
-                </select>
-                </div>
-                </td>
-                </div>
-                <td><button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button></td>
-  </form>`;
-    row.innerHTML = html;
-  },
   clearInputs: () => {
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => input.value = '');
@@ -117,7 +91,7 @@ let view = {
     <td></td>
     <td></td>
     <td></td>
-    <td><button onclick="view.renderForm()" class="btn btn-success btn-block">Add Book</button></td>`;
+    <td><button onclick="view.showForm()" class="btn btn-success btn-block">Add Book</button></td>`;
     table.appendChild(rowEmpty);
   },
   showAlert: (message, className) => {
