@@ -5,14 +5,14 @@ function Book(title, author, pages, read = 'Unread') {
   this.read = read;
 }
 
-let bookList = {
-  books: [],//[new Book('Twist Of The Wrist', 'Keith Code', 135, true),
-  //new Book('A Perfect Day', 'Lady Teresa', 40, false)],
-  addBook: function () {
-    let title = document.getElementById('title'),
-      author = document.getElementById('author'),
-      pages = document.getElementById('pages'),
-      read = document.getElementById('read-status');
+const bookList = {
+  books: [], // [new Book('Twist Of The Wrist', 'Keith Code', 135, true),
+  // new Book('A Perfect Day', 'Lady Teresa', 40, false)],
+  addBook() {
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+    const pages = document.getElementById('pages');
+    const read = document.getElementById('read-status');
 
     this.books.push(new Book(title.value, author.value, pages.value, read.value ? 'Read' : 'Unread'));
     // title.value = "";
@@ -21,44 +21,44 @@ let bookList = {
     // read.value = "";
     view.displayBooks();
   },
-  changeBook: function (position, title, author, pages, read) {
+  changeBook(position, title, author, pages, read) {
     title ? this.books[position].title = title : null;
     author ? this.books[position].author = author : null;
     pages ? this.books[position].pages = pages : null;
     this.books[position].read = read;
     view.displayBooks();
   },
-  deleteBook: function (position) {
+  deleteBook(position) {
     this.books.splice(position, 1);
     view.displayBooks();
   },
-  toggleRead: function (position) {
-    let book = this.books[position]
+  toggleRead(position) {
+    const book = this.books[position];
     book.read = !book.read;
     view.displayBooks();
   },
-  toggleAll: function () {
+  toggleAll() {
     if (this.books.every(book => book.read)) {
-      this.books.forEach(book => book.read = false)
+      this.books.forEach(book => book.read = false);
     } else {
-      this.books.forEach(book => book.read = true)
+      this.books.forEach(book => book.read = true);
     }
     view.displayBooks();
-  }
+  },
 };
 
 let view = {
-  displayBooks: function () {
-    let table = document.querySelector('.list');
-    table.innerHTML = "";
+  displayBooks() {
+    const table = document.querySelector('.list');
+    table.innerHTML = '';
     list = bookList.books;
     for (let i = 0; i < list.length; i++) {
-      let row = document.createElement('tr');
-      let html = "";
-      for (let key in list[i]) {
-        let id = "";
+      const row = document.createElement('tr');
+      let html = '';
+      for (const key in list[i]) {
+        let id = '';
         if (key == 'read') {
-          id = `data-id=${i}`
+          id = `data-id=${i}`;
         }
         html += `<td ${id}>${list[i][key]}</td>`;
       }
@@ -74,10 +74,10 @@ let view = {
   hideForm: () => {
     f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'none';
-  }
-}
+  },
+};
 
-document.querySelector("#add-book").addEventListener("click", function (event) {
+document.querySelector('#add-book').addEventListener('click', (event) => {
   event.preventDefault();
   bookList.addBook();
 }, false);

@@ -5,64 +5,63 @@ function Book(title, author, pages, read = 'Unread') {
   this.read = read;
 }
 
-let bookList = {
+const bookList = {
   books: [new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'),
   new Book('A Perfect Day', 'Lady Teresa', 40, 'Unread')],
-  addBook: function () {
-    let title = document.getElementById('title'),
-      author = document.getElementById('author'),
-      pages = document.getElementById('pages'),
-      read = document.getElementById('read-status');
-      if (title.value === "" || author.value === "" || pages.value === "" || read.value === "") {
-        view.showAlert('Please enter all fields', 'danger');
-      } else {
-        this.books.push(new Book(title.value, author.value, pages.value, read.value));
-        view.clearInputs();
-        view.displayBooks();
-        view.showAlert('Book added successfully!!', 'success');
-      }
-    
+  addBook() {
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+    const pages = document.getElementById('pages');
+    const read = document.getElementById('read-status');
+    if (title.value === '' || author.value === '' || pages.value === '' || read.value === '') {
+      view.showAlert('Please enter all fields', 'danger');
+    } else {
+      this.books.push(new Book(title.value, author.value, pages.value, read.value));
+      view.clearInputs();
+      view.displayBooks();
+      view.showAlert('Book added successfully!!', 'success');
+    }
   },
-  changeBook: function (position, title, author, pages, read) {
-    title ? this.books[position].title = title : null;
-    author ? this.books[position].author = author : null;
-    pages ? this.books[position].pages = pages : null;
-    this.books[position].read = read;
-    view.displayBooks();
-  },
-  deleteBook: function (position) {
+  // changeBook(position, title, author, pages, read) {
+  //   title ? this.books[position].title = title : null;
+  //   author ? this.books[position].author = author : null;
+  //   pages ? this.books[position].pages = pages : null;
+  //   this.books[position].read = read;
+  //   view.displayBooks();
+  // },
+  deleteBook(position) {
     this.books.splice(position, 1);
     view.displayBooks();
   },
-  toggleRead: function (position) {
-    let book = this.books[position]
-    book.read = book.read == "Read" ? "Unread" : "Read";
+  toggleRead(position) {
+    const book = this.books[position];
+    book.read = book.read == 'Read' ? 'Unread' : 'Read';
     view.displayBooks();
   },
-  toggleAll: function () {
+  toggleAll() {
     if (this.books.every(book => book.read)) {
-      this.books.forEach(book => book.read = false)
+      this.books.forEach(book => book.read = false);
     } else {
-      this.books.forEach(book => book.read = true)
+      this.books.forEach(book => book.read = true);
     }
     view.displayBooks();
-  }
+  },
 };
 
 let view = {
-  displayBooks: function () {
-    let table = document.querySelector('.list');
-    table.innerHTML = "";
+  displayBooks() {
+    const table = document.querySelector('.list');
+    table.innerHTML = '';
     list = bookList.books;
     for (let i = 0; i < list.length; i++) {
-      let row = document.createElement('tr');
-      let html = "";
-      for (let key in list[i]) {
+      const row = document.createElement('tr');
+      let html = '';
+      for (const key in list[i]) {
         if (key == 'read') {
-          let btnClass = list[i][key] === 'Unread' ? "btn btn-info" : "btn btn-success";
-          html += `<td id=${i}><button class="${btnClass} btn-block" onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`
+          const btnClass = list[i][key] === 'Unread' ? 'btn btn-info' : 'btn btn-success';
+          html += `<td id=${i}><button class="${btnClass} btn-block" onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`;
         } else {
-          html += `<td class="book-text">${list[i][key]}</td>`
+          html += `<td class="book-text">${list[i][key]}</td>`;
         }
       }
       html += `<td><button id=${i} onclick="bookList.deleteBook(${i})" class="btn btn-danger  btn-block">Delete</button></td>`;
@@ -73,16 +72,16 @@ let view = {
     this.addEmptyRow();
   },
   showForm: () => {
-    f = document.getElementsByClassName('hidden-form');
+    const f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'block';
   },
   hideForm: () => {
-    f = document.getElementsByClassName('hidden-form');
+    const f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'none';
   },
   renderForm: () => {
-    row = document.querySelector('.last-row');
-    html = `<form id="form" class="form">
+    const row = document.querySelector('.last-row');
+    const html = `<form id="form" class="form">
     <td>
     <div class="form-row">
                   <div class="form-group"><input type="text" maxlength="35" name="title" id="title"></div>
@@ -111,7 +110,7 @@ let view = {
     inputs.forEach(input => input.value = '');
   },
   addEmptyRow: () => {
-    table = document.querySelector(".list");
+    table = document.querySelector('.list');
     rowEmpty = document.createElement('tr');
     rowEmpty.className = 'last-row';
     rowEmpty.innerHTML = `<td></td>
@@ -132,8 +131,7 @@ let view = {
 
     // vanish in 2 seconds
     setTimeout(() => document.querySelector('.alert').remove(), 2000);
-  }
-}
+  },
+};
 
 view.displayBooks();
-
