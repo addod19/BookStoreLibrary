@@ -5,7 +5,7 @@
 ## Screenshots
 
 ### Big Screen with pop up form
-<img src="assets/images/overAll.PNG" alt="SCREEN with pop up form" >
+<img src="assets/images/main.PNG" alt="SCREEN with pop up form" >
 
 ### Big Screen
 <img src="assets/images/bigS.PNG" alt="big screen" >
