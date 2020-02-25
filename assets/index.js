@@ -73,6 +73,10 @@ let view = {
     const f = document.getElementsByClassName('hidden-form');
     f[0].style.display = 'none';
   },
+  closeButton: () => {
+    const f = document.getElementsByClassName('hidden-form');
+    f[0].style.display = 'none';
+  },
   clearInputs: () => {
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => input.value = '');

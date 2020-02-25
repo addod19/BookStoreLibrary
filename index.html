@@ -49,16 +49,17 @@
       <div class="container form-wrap">
         <div class="hidden-form">
           <form id="form" class="form">
-              <input class="form-control" type="text" name="title" id="title" placeholder="Please enter Title of book here">
-              <input class="form-control" type="text" name="author" id="author" placeholder="Please enter the name of Author here">
-              <input class="form-control" type="text" name="pages" id="pages" placeholder="Please enter no of Pages here">
-              <div class="form-group mt-4">
-                <select id="read-status" name="read-status" class="form-control form-control-md">
-                  <option value="Read">Read</option>
-                  <option value="Unread">Unread</option>
-                </select>
-              </div>
-              <button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button></div>
+            <div class="close" id="closeForm" onclick="view.closeButton()">X</div>
+            <input class="form-control" type="text" name="title" id="title" placeholder="Please enter Title of book here">
+            <input class="form-control" type="text" name="author" id="author" placeholder="Please enter the name of Author here">
+            <input class="form-control" type="text" name="pages" id="pages" placeholder="Please enter no of Pages here">
+            <div class="form-group mt-4">
+              <select id="read-status" name="read-status" class="form-control form-control-md">
+                <option value="Read">Read</option>
+                <option value="Unread">Unread</option>
+              </select>
+            </div>
+            <button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button></div>
           </form>
         </div>
       </div>

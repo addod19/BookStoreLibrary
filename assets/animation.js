@@ -2,6 +2,7 @@
 const textWrapper = document.querySelector('.inner-wrapper .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
+
 anime.timeline({ loop: true })
   .add({
     targets: '.inner-wrapper .letter',
