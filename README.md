@@ -2,7 +2,20 @@
 
 > Building a book store library using vanilla Javascript.
 
-![screenshot](./app_screenshot.png)
+## Screenshots
+
+### Big Screen with pop up form
+<img src="assets/images/overAll.PNG" alt="SCREEN with pop up form" >
+
+### Big Screen
+<img src="assets/images/bigS.PNG" alt="big screen" >
+
+### Medium Screen
+<img src="assets/images/mdS.PNG" alt="medium screen" >
+
+### Small Screen
+<img src="assets/images/smS.PNG" alt="small screen">
+
 
 Additional description about the project and its features.
 
@@ -10,11 +23,12 @@ Additional description about the project and its features.
 
 - HTML,
 - Bootstrap,
+- CSS,
 - Javascript
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://raw.githack.com/addod19/BookStoreLibrary/library/index.html)
 
 
 ## Getting Started
@@ -25,39 +39,38 @@ Additional description about the project and its features.
 
 To get a local copy up and running follow these simple example steps.
 
+1. ``` git clone https://github.com/addod19/BookStoreLibrary.git ```
+2. Open the project with your favorite browser
+3. Enjoy the beauty of the project
+
 ### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
 
 
 ## Authors
 
 👤 **Author1**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@addod19](https://github.com/addod19)
+- Twitter: [@DanielLarbiAdd1](https://twitter.com/DanielLarbiAdd1)
+- Linkedin: [Daniel Larbi Addo](https://linkedin.com/in/daniel-larbi-addo-9738b0128/)
 
 👤 **Author2**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
-
+- Github: [@macnick](https://github.com/macnick)
+- Twitter: [@mac_experts](https://twitter.com/mac_experts)
+- Linkedin: [Nick Haralampopoulos](https://www.linkedin.com/in/nick-haralampopoulos-26a55412a/)
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/addod19/BookStoreLibrary/issues).
+
+
+1. Fork it (https://github.com/addod19/BookStoreLibrary/fork)
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create a new Pull Request
 
 ## Show your support
 
