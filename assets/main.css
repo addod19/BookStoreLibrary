@@ -22,15 +22,18 @@ body {
   width: 60%;
   margin: 10%;
 }
-.form > div {
+.form > input,
+.form > div,
+.form > button {
   width: 100%;
+  margin-left: 15%;
 }
 .hidden-form {
   display: hidden;
   position: absolute;
   top: 30%;
   left: 20%;
-  height: 80%;
+  height: 70%;
   width: 60%;
   border-radius: 3em;
   z-index: 10;
@@ -77,8 +80,9 @@ tr:nth-child(even) {
   color: #fff;
 }
 input[type="text"] {
-  width: 90%;
+  width: 100%;
   display: inline-block;
+  margin-top: 1em;
 }
 .inner-wrapper .letters {
   display: inline-block;
