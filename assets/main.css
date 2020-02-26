@@ -31,9 +31,9 @@ body {
 .hidden-form {
   display: hidden;
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 20%;
-  height: 70%;
+  height: 50%;
   width: 60%;
   border-radius: 3em;
   z-index: 10;
@@ -44,10 +44,10 @@ body {
   box-shadow: 5px 10px 5px rgba(0,0,0,0.2), -5px -5px 5px rgb(168, 167, 167);
 }
 
-.tableContent {
+/* .tableContent {
   display: flex;
   align-content: center;
-}
+} */
 .main {
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ tr:nth-child(even) {
   font-size: 3.5em;
   color: #fff;
 }
-input[type="text"] {
+input[type="text"], input[type="number"] {
   width: 100%;
   display: inline-block;
   margin-top: 1em;
@@ -118,7 +118,7 @@ input[type="text"]:focus {
 
 /* modal */
 /* The Modal (background) */
-.modal {
+/* .modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -130,16 +130,16 @@ input[type="text"]:focus {
   overflow: auto;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
-}
+} */
 
 /* Modal Content */
-.modal-content {
+/* .modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-}
+} */
 
 /* The Close Button */
 .close {
