@@ -7,69 +7,99 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/main.css" />
-  <title>Document</title>
+  <title>Our Library</title>
 </head>
 
 <body>
   <div class="container">
-
-    <div class="wrapper">
-      <div class="head-wrapper">
-        <h1 class="inner-wrapper">
-          <span class="text-wrapper">
-            <span class="line line1"></span>
-            <span class="letters">Our Library</span>
-            <span class="line line2"></span>
-          </span>
-        </h1>
-      </div>
-      <div class="table-responsive main mt-4">
-        <table id="table" class="table">
-          <thead>
-            <tr>
-              <th class="col-xs-8">Title</th>
-              <th class="col-xs-1">Author</th>
-              <th class="col-xs-1">Pages</th>
-              <th class="col-xs-1">Read Status</th>
-              <th class="col-xs-1"></th>
-            </tr>
-          </thead>
-          <tbody class="list">
-            <tr>
-              <td>Movies</td>
-              <td>Nick</td>
-              <td>20</td>
-              <td>Unread</td>
-              <td><a href="">x</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="container form-wrap">
-        <div class="hidden-form" id="id01">
-          <form id="form" class="form">
-            <div class="close" id="closeForm" onclick="view.closeButton()">X</div>
-            <input class="form-control" type="text" name="title" id="title"
-              placeholder="Please enter Title of book here" maxlength="30">
-            <input class="form-control" type="text" name="author" id="author"
-              placeholder="Please enter the name of Author here" maxlength="30">
-            <input class="form-control" type="number" name="pages" id="pages"
-              placeholder="Please enter no of Pages here">
-            <div class="form-group mt-4">
-              <select id="read-status" name="read-status" class="form-control form-control-md">
-                <option value="Read">Read</option>
-                <option value="Unread">Unread</option>
-              </select>
-            </div>
-            <button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button>
-        </div>
-        </form>
-      </div>
+    <div class="head-wrapper">
+      <h1 class="inner-wrapper">
+        <span class="text-wrapper">
+          <span class="line line1"></span>
+          <span class="letters">Our Library</span>
+          <span class="line line2"></span>
+        </span>
+      </h1>
+    </div>
+    <div class="table-responsive main mt-4">
+      <table id="table" class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-8">Title</th>
+            <th class="col-xs-1">Author</th>
+            <th class="col-xs-1">Pages</th>
+            <th class="col-xs-1">Read Status</th>
+            <th class="col-xs-1"></th>
+          </tr>
+        </thead>
+        <tbody class="list">
+          <tr>
+            <td>Movies</td>
+            <td>Nick</td>
+            <td>20</td>
+            <td>Unread</td>
+            <td><a href="">x</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-  </div>
-  </div>
+    <div id="id01" class="hidden-form">
+      <form id="form" class="hidden-form-content">
+        <!-- <div class="close" id="closeForm" onclick="view.closeButton()">X</div> -->
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+          <input class="form-control" type="text" name="title" id="title" placeholder="Please enter Title of book"
+            maxlength="30">
+          <input class="form-control" type="text" name="author" id="author"
+            placeholder="Please enter the name of Author here" maxlength="30">
+          <input class="form-control" type="number" name="pages" id="pages" placeholder="Please enter no of Pages ">
+          <div class="form-group mt-4">
+            <select id="read-status" name="read-status" class="form-control form-control-md">
+              <option value="Read">Read</option>
+              <option value="Unread">Unread</option>
+            </select>
+          </div>
+        </div>
+        <div class="container">
+          <button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ---------- -->
+    <div id="id01" class="modal">
+      <form class="modal-content animate">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        </div>
+
+        <div class="container">
+          <label for="title"><b>Book Title</b></label>
+          <input type="text" name="title" id="title" required>
+
+          <label for="author"><b>Author</b></label>
+          <input type="text" name="author" id="author" required>
+
+          <label for="pages"><b>Number of pages</b></label>
+          <input type="text" name="pages" id="pages" required>
+
+          <label for="status"><b>Read Status</b>
+            <select id="read-status" name="read-status">
+              <option value="Read">Read</option>
+              <option value="Unread">Unread</option>
+            </select>
+        </div>
+        <div class="container">
+          <button id="add-book" onclick="bookList.addBook()">Add book</button>
+        </div>
+      </form>
+    </div>
+    <!-- </div> -->
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -82,7 +112,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-  <script src="assets/index2.js"></script>
+  <script src="assets/index.js"></script>
   <script src="assets/animation.js"></script>
 
 </body>

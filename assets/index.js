@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 function Book(title, author, pages, read = 'Unread') {
   this.title = title;
   this.author = author;
@@ -5,53 +6,18 @@ function Book(title, author, pages, read = 'Unread') {
   this.read = read;
 }
 
-const bookList = {
-  books: [new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'),
-  new Book('A Perfect Day', 'Lady Teresa', 40, 'Unread')],
-  addBook() {
-    const title = document.getElementById('title');
-    const author = document.getElementById('author');
-    const pages = document.getElementById('pages');
-    const read = document.getElementById('read-status');
-    if (title.value === '' || author.value === '' || pages.value === '' || read.value === '') {
-      view.showAlert('Please enter all fields', 'danger');
-    } else {
-      this.books.push(new Book(title.value, author.value, pages.value, read.value));
-      view.clearInputs();
-      view.displayBooks();
-      view.showAlert('Book added successfully!!', 'success');
-    }
-  },
-  deleteBook(position) {
-    this.books.splice(position, 1);
-    view.displayBooks();
-    view.showAlert('Book delete successfully', 'success');
-  },
-  toggleRead(position) {
-    const book = this.books[position];
-    book.read = book.read == 'Read' ? 'Unread' : 'Read';
-    view.displayBooks();
-  },
-  toggleAll() {
-    if (this.books.every(book => book.read)) {
-      this.books.forEach(book => book.read = false);
-    } else {
-      this.books.forEach(book => book.read = true);
-    }
-    view.displayBooks();
-  },
-};
-
-let view = {
+const view = {
   displayBooks() {
     const table = document.querySelector('.list');
     table.innerHTML = '';
-    list = bookList.books;
+    const list = bookList.books;
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < list.length; i++) {
       const row = document.createElement('tr');
       let html = '';
+      // eslint-disable-next-line no-restricted-syntax
       for (const key in list[i]) {
-        if (key == 'read') {
+        if (key === 'read') {
           const btnClass = list[i][key] === 'Unread' ? 'btn btn-info' : 'btn btn-success';
           html += `<td id=${i}><button class="${btnClass} btn-block" onclick="bookList.toggleRead(${i})">${list[i][key]}</button></td>`;
         } else {
@@ -61,17 +27,14 @@ let view = {
       html += `<td><button id=${i} onclick="bookList.deleteBook(${i})" class="btn btn-danger  btn-block">Delete</button></td>`;
       row.innerHTML = html;
       table.appendChild(row);
-      this.hideForm();
+      this.closeButton();
     }
     this.addEmptyRow();
   },
   showForm: () => {
     const f = document.getElementsByClassName('hidden-form');
+    // const f = document.getElementsByClassName('modal');
     f[0].style.display = 'block';
-  },
-  hideForm: () => {
-    const f = document.getElementsByClassName('hidden-form');
-    f[0].style.display = 'none';
   },
   closeButton: () => {
     const f = document.getElementsByClassName('hidden-form');
@@ -79,11 +42,11 @@ let view = {
   },
   clearInputs: () => {
     const inputs = document.querySelectorAll('input');
-    inputs.forEach(input => input.value = '');
+    inputs.forEach(input => { input.value = ''; });
   },
   addEmptyRow: () => {
-    table = document.querySelector('.list');
-    rowEmpty = document.createElement('tr');
+    const table = document.querySelector('.list');
+    const rowEmpty = document.createElement('tr');
     rowEmpty.className = 'last-row';
     rowEmpty.innerHTML = `<td></td>
     <td></td>
@@ -105,4 +68,52 @@ let view = {
   },
 };
 
+const bookList = {
+  books: [new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'),
+  // eslint-disable-next-line indent
+  new Book('A Perfect Day', 'Lady Teresa', 40, 'Unread')],
+  addBook() {
+    window.event.preventDefault()
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+    const pages = document.getElementById('pages');
+    const read = document.getElementById('read-status');
+    if (title.value === '' || author.value === '' || pages.value === '' || read.value === '') {
+      view.showAlert('Please enter all fields', 'danger');
+    } else {
+      this.books.push(new Book(title.value, author.value, pages.value, read.value));
+      view.clearInputs();
+      view.closeButton();
+      view.displayBooks();
+      view.showAlert('Book added successfully!!', 'success');
+    }
+  },
+  deleteBook(position) {
+    this.books.splice(position, 1);
+    view.displayBooks();
+  },
+  toggleRead(position) {
+    const book = this.books[position];
+    book.read = book.read === 'Read' ? 'Unread' : 'Read';
+    view.displayBooks();
+  },
+  toggleAll() {
+    if (this.books.every(book => book.read)) {
+      this.books.forEach(book => { book.read = false; });
+    } else {
+      this.books.forEach(book => { book.read = true; });
+    }
+    view.displayBooks();
+  },
+};
+
 view.displayBooks();
+const modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = (event) => {
+  if (event.target === modal) {
+    // modal.style.display = 'none';
+    view.closeButton();
+  }
+};
