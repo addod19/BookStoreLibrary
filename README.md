@@ -16,8 +16,12 @@
 ### Small Screen
 <img src="assets/images/smS.PNG" alt="small screen">
 
+The user can:
+1. Add a book
+2. Delete a book
+3. Change status from Read to Unread and vice versa
 
-Additional description about the project and its features.
+The books are remain in browser's localStorage
 
 ## Built With
 
