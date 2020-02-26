@@ -10,22 +10,6 @@ body {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.form {
-  /* display: grid;
-  grid-template-columns: 1fr;
-  width: 60%;
-  margin: 10%; */
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 60%;
-}
-/* .form > input,
-.form > div,
-.form > button {
-  width: 100%;
-  margin-left: 15%;
-} */
 .hidden-form {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -34,29 +18,40 @@ body {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: none;
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
 .hidden-form-content {
   background-color: #2e2c72;
-  margin: 26% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
+  margin: 17% auto 15% auto;
+  padding: 0 1rem;
   border-radius: 1rem;
-  width: 60%; /* Could be more or less, depending on screen size */
-  height: 320px;
+  width: 50%;
+  height: 340px;
 }
- input {
-  width: 80%;
+
+ input, select {
   display: inline-block;
-  margin-top: 1.4rem;
+  margin-top: 1.2rem;
 }
-/* input[type="text"]:focus {
-  background: #fff;
+
+/* The Close Button */
+.close {
   color: #fff;
-}  */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 9px 14px 10px 0;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(233, 8, 8);
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .main {
   display: flex;
@@ -68,27 +63,33 @@ body {
   box-shadow: 5px 10px 5px #888888, -5px -5px 5px #2e2c72;
   border-radius: 1em;
 }
+
 th, td {
   padding: 10px;
   text-align: left;
 }
+
 th {
   background-color: blanchedalmond;
 }
+
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
 .head-wrapper {
   background: #2e2c72;
   text-align: center;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   box-shadow: 5px 10px 5px rgba(0,0,0,0.4), -5px -5px 5px rgb(168, 167, 167);
 }
+
 .inner-wrapper {
   font-weight: 900;
   font-size: 3.5em;
   color: #fff;
 }
+
 .inner-wrapper .letters {
   display: inline-block;
   line-height: 1em;
@@ -115,19 +116,5 @@ tr:nth-child(even) {
 }
 
 .inner-wrapper .line1 { top: 0; }
+
 .inner-wrapper .line2 { bottom: 0; }
-
-/* The Close Button */
-.close {
-  color: #fff;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: rgb(233, 8, 8);
-  text-decoration: none;
-  cursor: pointer;
-}
