@@ -33,29 +33,19 @@
           </tr>
         </thead>
         <tbody class="list">
-          <tr>
-            <td>Movies</td>
-            <td>Nick</td>
-            <td>20</td>
-            <td>Unread</td>
-            <td><a href="">x</a></td>
-          </tr>
         </tbody>
       </table>
     </div>
 
     <div id="id01" class="hidden-form">
       <form id="form" class="hidden-form-content">
-        <!-- <div class="close" id="closeForm" onclick="view.closeButton()">X</div> -->
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-        </div>
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
         <div class="container">
           <input class="form-control" type="text" name="title" id="title" placeholder="Please enter Title of book"
             maxlength="30">
           <input class="form-control" type="text" name="author" id="author"
-            placeholder="Please enter the name of Author here" maxlength="30">
+            placeholder="Please enter the name of Author" maxlength="30">
           <input class="form-control" type="number" name="pages" id="pages" placeholder="Please enter no of Pages ">
           <div class="form-group mt-4">
             <select id="read-status" name="read-status" class="form-control form-control-md">
@@ -66,36 +56,6 @@
         </div>
         <div class="container">
           <button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- ---------- -->
-    <div id="id01" class="modal">
-      <form class="modal-content animate">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-        </div>
-
-        <div class="container">
-          <label for="title"><b>Book Title</b></label>
-          <input type="text" name="title" id="title" required>
-
-          <label for="author"><b>Author</b></label>
-          <input type="text" name="author" id="author" required>
-
-          <label for="pages"><b>Number of pages</b></label>
-          <input type="text" name="pages" id="pages" required>
-
-          <label for="status"><b>Read Status</b>
-            <select id="read-status" name="read-status">
-              <option value="Read">Read</option>
-              <option value="Unread">Unread</option>
-            </select>
-        </div>
-        <div class="container">
-          <button id="add-book" onclick="bookList.addBook()">Add book</button>
         </div>
       </form>
     </div>
