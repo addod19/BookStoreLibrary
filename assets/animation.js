@@ -2,7 +2,7 @@
 const textWrapper = document.querySelector('.inner-wrapper .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-
+// eslint-disable-next-line no-undef
 anime.timeline({ loop: true })
   .add({
     targets: '.inner-wrapper .letter',
