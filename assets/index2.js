@@ -108,12 +108,12 @@ const bookList = {
 };
 
 view.displayBooks();
-const form = document.getElementsByClassName('hidden-form');
+const modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = (event) => {
-  console.log(event.target, form)
-  if (event.target === form) {
+  if (event.target === modal) {
+    // modal.style.display = 'none';
     view.closeButton();
   }
 };
