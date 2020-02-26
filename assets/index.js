@@ -6,11 +6,28 @@ function Book(title, author, pages, read = 'Unread') {
   this.read = read;
 }
 
+let library = [];
+
+// Storage
+
+const populateStorage = () => {
+  library.push(new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'));
+  library.push(new Book('A Perfect Day', 'Lady Teresa', 140, 'Unread'));
+  localStorage.setItem('books', JSON.stringify(library));
+};
+// If storage is empty we store the demo books
+if (!localStorage.length) {
+  populateStorage();
+}
+
+library = JSON.parse(localStorage.getItem('books'));
+
 const view = {
   displayBooks() {
     const table = document.querySelector('.list');
     table.innerHTML = '';
-    const list = bookList.books;
+    library = JSON.parse(localStorage.getItem('books'));
+    const list = library;
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < list.length; i++) {
       const row = document.createElement('tr');
@@ -33,7 +50,6 @@ const view = {
   },
   showForm: () => {
     const f = document.getElementsByClassName('hidden-form');
-    // const f = document.getElementsByClassName('modal');
     f[0].style.display = 'block';
   },
   closeButton: () => {
@@ -68,12 +84,13 @@ const view = {
   },
 };
 
+// eslint-disable-next-line no-unused-vars
 const bookList = {
-  books: [new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'),
-  // eslint-disable-next-line indent
-  new Book('A Perfect Day', 'Lady Teresa', 40, 'Unread')],
+  updateStorage() {
+    localStorage.setItem('books', JSON.stringify(library));
+  },
   addBook() {
-    window.event.preventDefault()
+    window.event.preventDefault();
     const title = document.getElementById('title');
     const author = document.getElementById('author');
     const pages = document.getElementById('pages');
@@ -81,7 +98,8 @@ const bookList = {
     if (title.value === '' || author.value === '' || pages.value === '' || read.value === '') {
       view.showAlert('Please enter all fields', 'danger');
     } else {
-      this.books.push(new Book(title.value, author.value, pages.value, read.value));
+      library.push(new Book(title.value, author.value, pages.value, read.value));
+      this.updateStorage();
       view.clearInputs();
       view.closeButton();
       view.displayBooks();
@@ -89,12 +107,15 @@ const bookList = {
     }
   },
   deleteBook(position) {
-    this.books.splice(position, 1);
+    library.splice(position, 1);
+    this.updateStorage();
     view.displayBooks();
+    view.showAlert('Book deleted successfully!!', 'info');
   },
   toggleRead(position) {
-    const book = this.books[position];
+    const book = library[position];
     book.read = book.read === 'Read' ? 'Unread' : 'Read';
+    this.updateStorage();
     view.displayBooks();
   },
   toggleAll() {
@@ -108,6 +129,7 @@ const bookList = {
 };
 
 // When the user clicks anywhere outside of the modal, close it
+const modal = document.getElementById('id01');
 window.onclick = (event) => {
   if (event.target === modal) {
     view.closeButton();
@@ -115,5 +137,3 @@ window.onclick = (event) => {
 };
 
 view.displayBooks();
-const modal = document.getElementById('id01');
-
