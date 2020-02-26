@@ -2,6 +2,14 @@
 
 > Building a book store library using vanilla Javascript.
 
+## Description
+The user can:
+1. Add a book
+2. Delete a book
+3. Change status from Read to Unread and vice versa
+
+The books are remain in browser's localStorage
+
 ## Screenshots
 
 ### Big Screen with pop up form
@@ -15,13 +23,6 @@
 
 ### Small Screen
 <img src="assets/images/smS.PNG" alt="small screen">
-
-The user can:
-1. Add a book
-2. Delete a book
-3. Change status from Read to Unread and vice versa
-
-The books are remain in browser's localStorage
 
 ## Built With
 
