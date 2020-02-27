@@ -8,20 +8,6 @@ function Book(title, author, pages, read = 'Unread') {
 
 let library = [];
 
-// Storage
-
-const populateStorage = () => {
-  library.push(new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'));
-  library.push(new Book('A Perfect Day', 'Lady Teresa', 140, 'Unread'));
-  localStorage.setItem('books', JSON.stringify(library));
-};
-// If storage is empty we store the demo books
-if (!localStorage.length) {
-  populateStorage();
-}
-
-library = JSON.parse(localStorage.getItem('books'));
-
 const view = {
   displayBooks() {
     const table = document.querySelector('.list');
@@ -86,6 +72,14 @@ const view = {
 
 // eslint-disable-next-line no-unused-vars
 const bookList = {
+  // If storage is empty we store the demo books
+  populateStorage() {
+    if (!localStorage.length) {
+      library.push(new Book('Twist Of The Wrist', 'Keith Code', 135, 'Read'));
+      library.push(new Book('A Perfect Day', 'Lady Teresa', 140, 'Unread'));
+      localStorage.setItem('books', JSON.stringify(library));
+    }
+  },
   updateStorage() {
     localStorage.setItem('books', JSON.stringify(library));
   },
@@ -135,5 +129,7 @@ window.onclick = (event) => {
     view.closeButton();
   }
 };
+
+bookList.populateStorage();
 
 view.displayBooks();
