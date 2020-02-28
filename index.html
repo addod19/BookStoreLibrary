@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/main.css" />
+  <title>Our Library</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="head-wrapper">
+      <h1 class="inner-wrapper">
+        <span class="text-wrapper">
+          <span class="line line1"></span>
+          <span class="letters">Our Library</span>
+          <span class="line line2"></span>
+        </span>
+      </h1>
+    </div>
+    <div class="table-responsive main mt-4">
+      <table id="table" class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-8">Title</th>
+            <th class="col-xs-1">Author</th>
+            <th class="col-xs-1">Pages</th>
+            <th class="col-xs-1">Status</th>
+            <th class="col-xs-1"></th>
+          </tr>
+        </thead>
+        <tbody class="list">
+        </tbody>
+      </table>
+    </div>
+
+    <div id="id01" class="hidden-form">
+      <form id="form" class="hidden-form-content">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+        <div class="container">
+          <input class="form-control" type="text" name="title" id="title" placeholder="Please enter Title of book"
+            maxlength="30">
+          <input class="form-control" type="text" name="author" id="author"
+            placeholder="Please enter the name of Author" maxlength="30">
+          <input class="form-control" type="number" name="pages" id="pages" placeholder="Please enter no of Pages ">
+          <div class="form-group mt-4">
+            <select id="read-status" name="read-status" class="form-control form-control-md">
+              <option value="Read">Read</option>
+              <option value="Unread">Unread</option>
+            </select>
+          </div>
+        </div>
+        <div class="container">
+          <button id="add-book" onclick="bookList.addBook()" class="btn btn-success  btn-block">Add book</button>
+        </div>
+      </form>
+    </div>
+    <!-- </div> -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="assets/index.js"></script>
+  <script src="assets/animation.js"></script>
+
+</body>
+
+</html>

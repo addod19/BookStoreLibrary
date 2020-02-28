@@ -1,0 +1,119 @@
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.book-text {
+  font-weight: bolder;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.hidden-form {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow:hidden;
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.hidden-form-content {
+  background-color: #2e2c72;
+  margin: 17% auto 15% auto;
+  padding: 0 16px;
+  border-radius: 1rem;
+  width: 50%;
+  height: 340px;
+}
+
+ input, select {
+  display: inline-block;
+  margin-top: 1.2rem;
+}
+
+/* The Close Button */
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 9px 14px 10px 0;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(233, 8, 8);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin: 1%;
+  padding: 10px;
+  box-shadow: 5px 10px 5px #888888, -5px -5px 5px #2e2c72;
+  border-radius: 1em;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: blanchedalmond;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.head-wrapper {
+  background: #2e2c72;
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: 5px 10px 5px rgba(0,0,0,0.4), -5px -5px 5px rgb(168, 167, 167);
+}
+
+.inner-wrapper {
+  font-weight: 900;
+  font-size: 3.5em;
+  color: #fff;
+}
+
+.inner-wrapper .letters {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.inner-wrapper .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+.inner-wrapper .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  transform-origin: 0 0;
+}
+
+.inner-wrapper .line1 { top: 0; }
+
+.inner-wrapper .line2 { bottom: 0; }
