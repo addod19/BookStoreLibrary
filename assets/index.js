@@ -106,8 +106,8 @@ const bookList = {
     view.displayBooks();
     view.showAlert('Book deleted successfully!!', 'info');
   },
-  toggleRead(position) {
-    const book = library[position];
+  toggleRead(status) {
+    const book = library[status];
     book.read = book.read === 'Read' ? 'Unread' : 'Read';
     this.updateStorage();
     view.displayBooks();
