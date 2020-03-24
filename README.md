@@ -2,7 +2,7 @@
 
 > Building a book store library using vanilla Javascript.
 
-## Description
+## Features
 The user can:
 1. Add a book
 2. Delete a book
