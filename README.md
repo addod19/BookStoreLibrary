@@ -8,7 +8,7 @@ The user can:
 2. Delete a book
 3. Change status from Read to Unread and vice versa
 
-The books are remain in browser's localStorage
+The books are stored in browser's localStorage
 
 ## Screenshots
 
