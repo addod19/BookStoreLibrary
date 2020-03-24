@@ -1,6 +1,6 @@
 # Library
 
-> Building a book store library using vanilla Javascript.
+> Building a book store library using vanilla Javascript. In this project, we demostrate the use of Object and Object Constructor
 
 ## Features
 The user can:
