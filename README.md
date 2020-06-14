@@ -26,9 +26,9 @@ The books are stored in browser's localStorage
 
 ## Built With
 
-- HTML,
-- Bootstrap,
-- CSS,
+- HTML
+- Bootstrap
+- CSS
 - Javascript
 
 ## Live Demo
